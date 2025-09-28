@@ -3,8 +3,11 @@ plugins {
     id("xyz.jpenilla.run-paper") version "2.3.1"
 }
 
-group = 'io.d2a.compat'
-version = (project.findProperty("version") ?: "0.0.1-SNAPSHOT").toString()
+if (project.hasProperty("projVersion")) {
+    project.version = project.findProperty("projVersion")
+} else {
+    project.version = "0.0.1-SNAPSHOT"
+}
 
 repositories {
     mavenCentral()
@@ -45,11 +48,8 @@ tasks.withType(JavaCompile).configureEach {
     }
 }
 
-processResources {
-    def props = [version: version]
-    inputs.properties props
-    filteringCharset 'UTF-8'
+tasks.processResources {
     filesMatching('paper-plugin.yml') {
-        expand props
+        expand([version: project.version])
     }
 }

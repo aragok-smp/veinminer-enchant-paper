@@ -45,8 +45,8 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Build shaded jar
-        run: ./gradlew --no-daemon -Pversion="${{ env.VERSION }}" build
+      - name: Build
+        run: ./gradlew --no-daemon -PprojVersion="${{ env.VERSION }}" build
 
       - name: Create Tag
         id: bump_real

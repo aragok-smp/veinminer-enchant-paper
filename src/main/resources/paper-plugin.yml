@@ -1,7 +1,7 @@
 # note this name needs to by 'veinminer-enchantment':
 # https://github.com/MiraculixxT/Veinminer/blob/288ddca3696609637817932adbb4527b8fc903eb/veinminer-paper/src/main/kotlin/de/miraculixx/veinminer/Veinminer.kt#L55
 name: veinminer-enchantment
-version: '1.0-SNAPSHOT'
+version: ${version}
 description: "Adds a Veinminer enchantment to the game."
 
 main: io.d2a.compat.veinminerEnchantPaper.VeinminerEnchantPaper
